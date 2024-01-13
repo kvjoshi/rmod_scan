@@ -1,4 +1,3 @@
-
 use std::io::{Read, Write};
 use std::net::TcpStream;
 use std::time::Duration;
@@ -18,13 +17,12 @@ fn main() {
 
     // create request object
     for x in 1..254{
-    let scan = || -> Result<(), Error>
-        {
+    let scan= ||->Result<(), Error>{
             read_reg(&stream, x);
             Ok(())
         };
-        if let Err(_err) = scan(){
-            println!("Cant Connect at {}",x);
+        if let Err(_err) = scan() {
+            println!("Failed to perform necessary steps");
         }
 
     }
